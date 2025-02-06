@@ -50,8 +50,12 @@ class upRecipe(ConanFile):
 
     def package_info(self):
         # up_a
+        # Use subfolder so "linking" a CMake target to up_a does not make up_b headers visible
+        self.cpp_info.components["up_a"].includedirs = ["include/up_a"]
         self.cpp_info.components["up_a"].libs = ["up_a"]
         self.cpp_info.components["up_a"].set_property("cmake_target_name", "up::up_a")
         # up_b
+        # Use subfolder so "linking" a CMake target to up_b does not make up_a headers visible
+        self.cpp_info.components["up_b"].includedirs = ["include/up_b"]
         self.cpp_info.components["up_b"].libs = ["up_b"]
         self.cpp_info.components["up_b"].set_property("cmake_target_name", "up::up_b")

@@ -12,4 +12,6 @@ add_library(up::${TARGET_NAME} ALIAS ${TARGET_NAME})
 
 # PUBLIC_HEADER property is notably making the headers available in the conan package
 set_target_properties(${TARGET_NAME} PROPERTIES PUBLIC_HEADER "up_a.h")
-install(TARGETS ${TARGET_NAME})
+install(TARGETS ${TARGET_NAME}
+    PUBLIC_HEADER DESTINATION "include/up_a/"
+)

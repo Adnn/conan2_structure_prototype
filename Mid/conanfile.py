@@ -56,5 +56,6 @@ class midRecipe(ConanFile):
         cmake.install()
 
     def package_info(self):
+        self.cpp_info.includedirs = ["include/mid_a"]
         self.cpp_info.libs = ["mid_a"]
         self.cpp_info.set_property("cmake_target_name", "mid::mid_a")

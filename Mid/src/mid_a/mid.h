@@ -2,8 +2,8 @@
 
 // Demonstrate public header inclusion
 #include "up_a.h"
-// TODO #SHOULD_FAIL
-#include "up_b.h"
+// #SHOULD_FAIL, because we target_link_libraries to up::up_a, not up::up_b
+//#include "up_b.h"
 
 #include <vector>
 #include <string>
