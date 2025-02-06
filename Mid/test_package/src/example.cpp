@@ -9,4 +9,7 @@ int main() {
     vec.push_back("test_package");
 
     mid_print_vector(vec);
+
+    // Up
+    forward_up();
 }

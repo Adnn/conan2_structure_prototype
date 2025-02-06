@@ -22,6 +22,13 @@ class midRecipe(ConanFile):
     # Sources are located in the same place as this recipe, copy them to the recipe
     exports_sources = "CMakeLists.txt", "src/*", "include/*"
 
+    def requirements(self):
+        self.requires(
+                "up/1.4.0",
+                # Seems required for downstreams of mid to find headers of up
+                # (up headers are publicly included by mid headers)
+                transitive_headers=True)
+
     def config_options(self):
         if self.settings.os == "Windows":
             self.options.rm_safe("fPIC")

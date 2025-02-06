@@ -4,7 +4,7 @@
 
 
 void mid(){
-    
+
 
     #ifdef NDEBUG
     std::cout << "mid/2.0.0: Hello World Release!\n";
@@ -117,4 +117,9 @@ void mid_print_vector(const std::vector<std::string> &strings) {
     for(std::vector<std::string>::const_iterator it = strings.begin(); it != strings.end(); ++it) {
         std::cout << "mid/2.0.0 " << *it << std::endl;
     }
+}
+
+void forward_up()
+{
+    up();
 }
