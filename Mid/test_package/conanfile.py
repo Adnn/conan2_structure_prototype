@@ -1,16 +1,22 @@
 import os
 
 from conan import ConanFile
-from conan.tools.cmake import CMake, cmake_layout
+from conan.tools.cmake import CMake, CMakeDeps, cmake_layout
 from conan.tools.build import can_run
 
 
 class midTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
-    generators = "CMakeDeps", "CMakeToolchain"
+    generators = "CMakeToolchain"
 
     def requirements(self):
         self.requires(self.tested_reference_str)
+
+    def generate(self):
+        deps = CMakeDeps(self)
+        # Detect component name problem as soon as find_package()
+        deps.check_components_exist = True
+        deps.generate()
 
     def build(self):
         cmake = CMake(self)
