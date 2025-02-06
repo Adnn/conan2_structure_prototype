@@ -1,7 +1,7 @@
 #pragma once
 
 // Demonstrate public header inclusion
-#include "up.h"
+#include "up_a.h"
 
 #include <vector>
 #include <string>
@@ -17,3 +17,4 @@ MID_EXPORT void mid();
 MID_EXPORT void mid_print_vector(const std::vector<std::string> &strings);
 
 UP_EXPORT void forward_up();
+
