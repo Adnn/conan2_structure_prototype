@@ -3,5 +3,6 @@ project(Up CXX)
 
 
 add_subdirectory(src/up_a)
+add_subdirectory(src/up_b)
 
 

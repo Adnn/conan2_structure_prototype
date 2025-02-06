@@ -2,6 +2,8 @@
 
 // Demonstrate public header inclusion
 #include "up_a.h"
+// TODO #SHOULD_FAIL
+#include "up_b.h"
 
 #include <vector>
 #include <string>

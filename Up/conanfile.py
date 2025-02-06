@@ -49,6 +49,9 @@ class upRecipe(ConanFile):
         cmake.install()
 
     def package_info(self):
+        # up_a
         self.cpp_info.components["up_a"].libs = ["up_a"]
         self.cpp_info.components["up_a"].set_property("cmake_target_name", "up::up_a")
-
+        # up_b
+        self.cpp_info.components["up_b"].libs = ["up_b"]
+        self.cpp_info.components["up_b"].set_property("cmake_target_name", "up::up_b")
