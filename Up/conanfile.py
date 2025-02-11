@@ -53,7 +53,12 @@ class upRecipe(ConanFile):
         # Use subfolder so "linking" a CMake target to up_a does not make up_b headers visible
         self.cpp_info.components["up_a"].includedirs = ["include/up_a"]
         self.cpp_info.components["up_a"].libs = ["up_a"]
+        # Set the target name, which is also used as the `find_package()` COMPONENT name.
+        # Note: default target name is <package>::<component>, unless `cmake_target_name` overrides it.
         self.cpp_info.components["up_a"].set_property("cmake_target_name", "up::up_a")
+        # This can be used to **add** aliases for `cmake_target_name`.
+        #self.cpp_info.components["up_a"].set_property("cmake_target_aliases", ["upity::up_ab",])
+
         # up_b
         # Use subfolder so "linking" a CMake target to up_b does not make up_a headers visible
         self.cpp_info.components["up_b"].includedirs = ["include/up_b"]
