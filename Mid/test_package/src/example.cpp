@@ -6,9 +6,11 @@
 // (dowstreams should not rely on the fact that mid_a happens to use up_a)
 #include "up_a.h"
 
-// TODO #SHOULD_FAIL On the other hand, this should not work
+// #SHOULD_FAIL On the other hand, including "up_b.h" should not work
 // up_b is not in the dependency graph of this test package
-#include "up_b.h"
+// Introducing `cpp_info.requires` in Conan recipe does restrict availability
+// to only Conan components explicitly listed (instead of the default "all components").
+//#include "up_b.h"
 
 int main() {
     mid();

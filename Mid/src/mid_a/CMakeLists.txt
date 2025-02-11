@@ -10,6 +10,10 @@ target_include_directories(${TARGET_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 find_package(up CONFIG REQUIRED COMPONENTS up::up_a)
 target_link_libraries(${TARGET_NAME} PUBLIC up::up_a)
 
+# Note: even though we restricted `mid_a` cpp_info.requires to `up::up_a` only
+# `up::up_b` can still be found.
+# (The same behaviour as with our Config.cmake files: all components are visible)
+#find_package(up CONFIG REQUIRED COMPONENTS up::up_b)
 
 # Alias consistent with the cmake_target_name declared in cpp_info
 # (not useful for Conan workflow, but makes it so CMake workflow can use the same names)

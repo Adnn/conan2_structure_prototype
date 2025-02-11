@@ -59,3 +59,7 @@ class midRecipe(ConanFile):
         self.cpp_info.includedirs = ["include/mid_a"]
         self.cpp_info.libs = ["mid_a"]
         self.cpp_info.set_property("cmake_target_name", "mid::mid_a")
+        # Afaiu, this will notably control which `find_package` will added to generated
+        # `MidConfig.cmake` (in place of our `FindDependency.cmake` file).
+        # The default seems to be adding all, `requires` turns it into explicit list.
+        self.cpp_info.requires = ["up::up_a",]
