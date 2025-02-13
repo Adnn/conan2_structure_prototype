@@ -62,4 +62,8 @@ class midRecipe(ConanFile):
         # Afaiu, this will notably control which `find_package` will added to generated
         # `MidConfig.cmake` (in place of our `FindDependency.cmake` file).
         # The default seems to be adding all, `requires` turns it into explicit list.
+        # IMPORTANT: another difference seems to be that, when using requires,
+        # even if this package links against other sibling targets in its CMakeLists,
+        # their headers are not available to downstreams of **this** package.
+        # (Note: I think sibling targets should not be visible, but they are)
         self.cpp_info.requires = ["up::up_a",]
